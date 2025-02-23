@@ -1,0 +1,289 @@
+<?xml version="1.0" ?>
+<robot name="mack" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find mack_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find mack_description)/urdf/mack.trans" />
+<xacro:include filename="$(find mack_description)/urdf/mack.gazebo" />
+
+<link name="base_footprint">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0.0 0.0 0.0" />
+    </geometry>
+  </visual>
+</link>
+
+<joint name="fixed_base_joint" type="fixed">
+  <parent link="base_footprint" />
+  <child link="base_link" />
+  <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0007778903135426677 1.6502875620097167e-15 0.17822345657872354" rpy="0 0 0"/>
+    <mass value="10.99878354396862"/>
+    <inertia ixx="1.263419" iyy="1.444654" izz="2.497445" ixy="0.0" iyz="0.0" ixz="0.002027"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_left_1">
+  <inertial>
+    <origin xyz="-2.2300015108860395e-14 -0.025290220820189058 -4.163336342344337e-17" rpy="0 0 0"/>
+    <mass value="2.315432325512016"/>
+    <inertia ixx="0.009481" iyy="0.017836" izz="0.009481" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.35 -0.125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/wheel_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.35 -0.125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/wheel_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_right_1">
+  <inertial>
+    <origin xyz="-2.2238780663796043e-14 0.02529022082018928 -5.551115123125783e-17" rpy="0 0 0"/>
+    <mass value="2.315432325512018"/>
+    <inertia ixx="0.009481" iyy="0.017836" izz="0.009481" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.35 -0.125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/wheel_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.35 -0.125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/wheel_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="floor2_1">
+  <inertial>
+    <origin xyz="0.004230213162797551 -2.749670496953375e-06 0.16565647169661446" rpy="0 0 0"/>
+    <mass value="8.920345906190907"/>
+    <inertia ixx="1.75095" iyy="1.931745" izz="2.974313" ixy="-1.9e-05" iyz="4e-06" ixz="-0.020385"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.475" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/floor2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.475" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/floor2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="floor1_1">
+  <inertial>
+    <origin xyz="0.22623337099373322 1.7191798888926132e-16 0.10706606465888041" rpy="0 0 0"/>
+    <mass value="8.28321579164062"/>
+    <inertia ixx="1.292381" iyy="1.907305" izz="2.907554" ixy="0.0" iyz="-0.0" ixz="0.00152"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.225 -0.0 -0.31" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/floor1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.225 -0.0 -0.31" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/floor1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="name_plate_1">
+  <inertial>
+    <origin xyz="0.05739682073390919 -0.0009999999999998344 -0.008647682156512404" rpy="0 0 0"/>
+    <mass value="0.060008993223901956"/>
+    <inertia ixx="5.2e-05" iyy="0.001148" izz="0.001097" ixy="0.0" iyz="0.0" ixz="3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.4 -0.3925" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/name_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.4 -0.3925" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/name_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-0.06 3.124274621132771e-17 0.009999999999999898" rpy="0 0 0"/>
+    <mass value="0.166504410640259"/>
+    <inertia ixx="0.00011" iyy="0.00011" izz="0.000208" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.42 -0.0 -0.80" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.42 -0.0 -0.80" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="0.004792230992219593 -0.00030298214458913107 3.116480004006217e-05" rpy="0 0 0"/>
+    <mass value="0.03701026018938745"/>
+    <inertia ixx="6.2e-05" iyy="3e-06" izz="6e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.45 -0.0 -0.695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.45 -0.0 -0.695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ES_switch_1">
+  <inertial>
+    <origin xyz="-0.014358790675261301 -0.06000014973462447 0.01435842864211656" rpy="0 0 0"/>
+    <mass value="0.057964622618710125"/>
+    <inertia ixx="1.5e-05" iyy="1.4e-05" izz="1.5e-05" ixy="-0.0" iyz="0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.384718 0.000443 -0.746998" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/ES_switch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.384718 0.000443 -0.746998" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/ES_switch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="CS_switch_1">
+  <inertial>
+    <origin xyz="-0.0070711132047054925 0.059999850265375666 0.00707075117156053" rpy="0 0 0"/>
+    <mass value="0.024610925269422813"/>
+    <inertia ixx="4e-06" iyy="3e-06" izz="4e-06" ixy="-0.0" iyz="-0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.384718 0.000443 -0.746998" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/CS_switch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.384718 0.000443 -0.746998" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mack_description)/meshes/CS_switch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 5" type="continuous">
+  <origin xyz="0.0 -0.35 0.125" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_left_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 6" type="continuous">
+  <origin xyz="0.0 0.35 0.125" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_right_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid 7" type="fixed">
+  <origin xyz="0.225 0.0 0.165" rpy="0 0 0"/>
+  <parent link="floor1_1"/>
+  <child link="floor2_1"/>
+</joint>
+
+<joint name="Rigid 8" type="fixed">
+  <origin xyz="-0.225 0.0 0.31" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="floor1_1"/>
+</joint>
+
+<joint name="Rigid 9" type="fixed">
+  <origin xyz="0.225 -0.4 0.0825" rpy="0 0 0"/>
+  <parent link="floor1_1"/>
+  <child link="name_plate_1"/>
+</joint>
+
+<joint name="Rigid 10" type="fixed">
+  <origin xyz="0.36 0.0 0.35" rpy="0 0 0"/>
+  <parent link="floor2_1"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="Rigid 11" type="fixed">
+  <origin xyz="0.45 0.0 0.22" rpy="0 0 0"/>
+  <parent link="floor2_1"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="Rigid 12" type="fixed">
+  <origin xyz="-0.384718 -0.000443 0.271998" rpy="0 0 0"/>
+  <parent link="floor2_1"/>
+  <child link="ES_switch_1"/>
+</joint>
+
+<joint name="Rigid 13" type="fixed">
+  <origin xyz="-0.384718 -0.000443 0.271998" rpy="0 0 0"/>
+  <parent link="floor2_1"/>
+  <child link="CS_switch_1"/>
+</joint>
+
+</robot>
