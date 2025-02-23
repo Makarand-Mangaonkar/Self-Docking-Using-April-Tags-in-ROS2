@@ -84,13 +84,11 @@ source install/setup.bash
    
     Map name: warehouse
  
-# To run Docking :    
-   
-  - 
-  
-    ```bash
-    ros2 launch mack_navigation apriltag_navigation.launch.py 
-    ```
+# To run Docking :   
+
+  ```bash
+  ros2 launch mack_navigation apriltag_navigation.launch.py 
+  ```
     
     
     
